@@ -113,7 +113,7 @@ Function Get-IaasPackages ($JSONPath){
         }
         Foreach($Package in Get-ChildItem $JSONPATH){
             $IndexName = $Package.BaseName
-            $Packages.$IndexName = Get-Content -Raw -Path $JSONPath\$Package | ConvertFrom-JSON
+            $Packages.$IndexName = Get-Content -Path $JSONPath\$Package | ConvertFrom-JSON
         }
         Write-Verbose "Following Packages have been loaded $Packages"
         Clear-Variable Package
