@@ -67,7 +67,7 @@ Function Get-IaaSDeployConfig{
     Foreach($File in Get-ChildItem $PSScriptRoot)
     {
         if($File.name -eq "config.json"){
-            $Config = Get-Content -Raw -Path $PSScriptRoot\$File | ConvertFrom-JSON
+            $Config = Get-Content -Path $PSScriptRoot\$File | ConvertFrom-JSON
             Write-Host "Config Successfully found."
         }
     }
