@@ -55,6 +55,13 @@ $LoggingType = 0 # 0 = Log File, 1 = SQL, 2 = LogAnalytics
 #>
 
 #* END OF GLOBAL VARIABLES
+Function ConvertFrom-JSON([object] $item){ 
+    add-type -assembly system.web.extensions
+    $ps_js=new-object system.web.script.serialization.javascriptSerializer
+
+    #The comma operator is the array construction operator in PowerShell
+    return ,$ps_js.DeserializeObject($item)
+}
 Function Get-IaaSDeployConfig{
     $Config = @{}
     Foreach($File in Get-ChildItem $PSScriptRoot)
@@ -211,5 +218,3 @@ Function Send-Email{
     }
     Send-MailMessage @mailparam -UseSsl
 }
-
-Send-Email
