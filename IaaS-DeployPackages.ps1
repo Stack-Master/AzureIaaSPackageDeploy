@@ -180,7 +180,7 @@ Function Install-IaaSPackages ($Packages){
 $Config = Get-IaaSDeployConfig
 $LogPath = $Config.LogPath
 $LogType = $Config.LogType
-$JSONPath = $Config.JSONPath
+$JSONPath = "$PSScriptRoot\JSON"
 $InstallPath = $Config.InstallPath
 $NotificationEmail = $Config.NotificationEmail
 

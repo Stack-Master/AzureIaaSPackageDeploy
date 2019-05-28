@@ -1,5 +1,5 @@
 {
-	"LogPath":"C:/temp/jsonlogfile.txt",
+	"LogPath":"jsonlogfile.txt",
 	"LogType":"0",
 	"JSONPath":"C:/temp/JSON",
 	"InstallPath":"/DoesntMatterRightNow",
