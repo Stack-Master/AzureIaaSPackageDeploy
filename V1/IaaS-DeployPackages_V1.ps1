@@ -96,8 +96,24 @@ Function Install-IaaSPackages ($Packages){
         }
     }
 }
+Function Send-Email($Config){
+    $secpw = ConvertTo-SecureString $Config.SMTP.Password -AsPlainText -Force
+    $smtpcred = New-Object System.Management.Automation.PSCredential($Config.SMTP.Username, $secpw)
+    $mailparam =@{
+            To = $Config.SMTP.To
+            From = $Config.SMTP.From
+            Subject = 'IaaS Auto Deployment Notification'
+            Body = 'WIP'
+            SmtpServer = $Config.SMTP.Server
+            Port = $Config.SMTP.Port
+            Credential = $smtpcred
+            Attachments = $Config.LogPath
+    }
+    Send-MailMessage @mailparam -UseSsl
+}
 $Config = Get-IaaSDeployConfig
 $LogPath = $Config.LogPath
 $JSONPath = "$PSScriptRoot\JSON"
 $ProcessedPackages = Get-IaaSPackageFiles ($(Get-IaasPackages $JSONPath))
 Install-IaaSPackages ($ProcessedPackages)
+Send-Email($Config)
