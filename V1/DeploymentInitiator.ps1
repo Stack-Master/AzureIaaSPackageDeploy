@@ -1,11 +1,25 @@
 Import-Module BitsTransfer
+Start-BitsTransfer -Source https://raw.githubusercontent.com/Stack-Master/AzureIaaSPackageDeploy/master/directory.json
+$Directory = @{}
+$Directory = Get-Content -Raw -Path $PSScriptRoot\directory.json | ConvertFrom-JSON
+If(!$Directory){
+     Exit
+}
 $Folder = "$PSScriptRoot\JSON"
 If(!(Test-Path $Folder))
 {
     New-Item -ItemType Directory -Force -Path $Folder
 }
-Start-BitsTransfer -source https://raw.githubusercontent.com/Stack-Master/AzureIaaSPackageDeploy/master/V1/IaaS-DeployPackages_V1.ps1
-Start-BitsTransfer -source https://raw.githubusercontent.com/Stack-Master/AzureIaaSPackageDeploy/master/V1/config.json
-Start-BitsTransfer -Source https://raw.githubusercontent.com/Stack-Master/AzureIaaSPackageDeploy/master/JSON/chrome.json -Destination $Folder
-& .\IaaS-DeployPackages_V1.ps1 | Out-Null
+foreach ($Key in $Directory.Keys)
+{
+    If($Directory[$Key].BaseName -eq "main"){
+        Start-BitsTransfer -Source $Directory[$Key].config
+        Start-BitsTransfer -Source $Directory[$Key].deploy
+    }
+    else{
+        Start-BitsTransfer -Source $Directory[$Key].location -Destination $Folder
+    }
+}
+$MainDeployPayload = Split-Path $Directory["main"].deploy -leaf
+& .\$MainDeployPayload | Out-Null
 
