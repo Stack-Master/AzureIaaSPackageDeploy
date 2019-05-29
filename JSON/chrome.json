@@ -1,6 +1,6 @@
 {
     "PackageName":"googlechrome",
-    "PackageLocation":"http://dl.google.com/chrome/install/375.126/chrome_installer.exe",
+    "PackageLocation":"http://redirector.gvt1.com/edgedl/release2/chrome/W4tpFcs0b30_71.0.3578.80/71.0.3578.80_chrome_installer.exe",
     "PackageParams":"/silent /install",
     "NetworkRules": {
         "SourcePort":"0",
