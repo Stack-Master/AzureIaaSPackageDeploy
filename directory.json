@@ -6,21 +6,5 @@
 	"chrome":	{		
 		"package":"chrome.json",
 		"location":"https://raw.githubusercontent.com/Stack-Master/AzureIaaSPackageDeploy/master/JSON/chrome.json"
-	}, 
-	"notepadpp":	{		
-		"package":"notepadpp.json",
-		"location":"https://raw.githubusercontent.com/Stack-Master/AzureIaaSPackageDeploy/master/JSON/notepadpp.json"
-	},
-	"scom":	{		
-		"package":"scom.json",
-		"location":"https://raw.githubusercontent.com/Stack-Master/AzureIaaSPackageDeploy/master/JSON/scom.json"
-	},
-	"sophos":	{		
-		"package":"sophos.json",
-		"location":"https://raw.githubusercontent.com/Stack-Master/AzureIaaSPackageDeploy/master/JSON/sophos.json"
-	},
-	"snow":	{		
-		"package":"snow.json",
-		"location":"https://raw.githubusercontent.com/Stack-Master/AzureIaaSPackageDeploy/master/JSON/snow.json"
 	}
 }
