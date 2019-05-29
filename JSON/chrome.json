@@ -1,0 +1,11 @@
+{
+    "PackageName":"googlechrome",
+    "PackageLocation":"http://dl.google.com/chrome/install/375.126/chrome_installer.exe",
+    "PackageParams":"/silent /install",
+    "NetworkRules": {
+        "SourcePort":"0",
+        "DestinationPort":"0",
+        "SourceIP":"Any",
+        "DestinationIP":"Any"
+    }
+}
