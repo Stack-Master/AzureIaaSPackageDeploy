@@ -3,7 +3,7 @@
 		"config":"https://raw.githubusercontent.com/Stack-Master/AzureIaaSPackageDeploy/master/V1/config.json",
 		"deploy":"https://raw.githubusercontent.com/Stack-Master/AzureIaaSPackageDeploy/master/V1/IaaS-DeployPackages_V1.ps1"
 	},
-  "chrome":	{		
+	"chrome":	{		
 		"package":"chrome.json",
 		"location":"https://raw.githubusercontent.com/Stack-Master/AzureIaaSPackageDeploy/master/JSON/chrome.json"
 	}, 
@@ -11,7 +11,7 @@
 		"package":"notepadpp.json",
 		"location":"https://raw.githubusercontent.com/Stack-Master/AzureIaaSPackageDeploy/master/JSON/notepadpp.json"
 	},
-  "scom":	{		
+	"scom":	{		
 		"package":"scom.json",
 		"location":"https://raw.githubusercontent.com/Stack-Master/AzureIaaSPackageDeploy/master/JSON/scom.json"
 	},
