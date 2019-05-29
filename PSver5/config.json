@@ -1,0 +1,7 @@
+{
+	"LogPath":"jsonlogfile.txt",
+	"LogType":"0",
+	"JSONPath":"C:/temp/JSON",
+	"InstallPath":"/DoesntMatterRightNow",
+	"NotificationEmail":"thiseither@email.com"
+}
