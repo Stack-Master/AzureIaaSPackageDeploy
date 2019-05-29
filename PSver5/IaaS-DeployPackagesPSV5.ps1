@@ -187,6 +187,28 @@ $NotificationEmail = $Config.NotificationEmail
 $ProcessedPackages = Get-IaaSPackageFiles ($(Get-IaasPackages $JSONPath))
 Install-IaaSPackages ($ProcessedPackages)
 
+Function Send-Email{
+    $secpw = ConvertTo-SecureString "London99" -AsPlainText -Force
+    $smtpcred = New-Object System.Management.Automation.PSCredential("smtp@stack.org.uk", $secpw)
+    $ToAddress = "colin.kidwell@provident.co.uk"
+    $FromAddress = "smtp@stack.org.uk"
+    $SmtpServer = "smtp.office365.com"
+    $SmtpPort = "587"
+    $Attachments = "jsonlogfile.txt"
+
+    $mailparam =@{
+            To = $ToAddress
+            From = $FromAddress
+            Subject = 'AutoDeployment Test'
+            Body = 'Please ignore'
+            SmtpServer = $SmtpServer
+            Port = $SmtpPort
+            Credential = $smtpcred
+            Attachments = $Attachments
+    }
+    Send-MailMessage @mailparam -UseSsl
+}
+Send-Email
 
 #$ITEST = Get-IaasPackages $JSONPath
 
